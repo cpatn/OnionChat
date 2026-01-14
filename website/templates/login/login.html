@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Login | OnionChat</title>
+        <link rel="icon" href="/static/img/OnionChat.webp">
+        <link rel="stylesheet" href="/static/css/login.css">
+    </head>
+    <body>
+        <a class="logo" href="/">
+            <img src="/static/img/OnionChat.webp">
+            <b>OnionChat</b>
+        </a>
+
+        <section id="container">
+            <div id="login">
+                <div class="head">
+                    <div class="img">
+                        <img src="/static/img/OnionChat.webp">
+                    </div>
+                    <p>Welcome Back!</p>
+                </div>
+                <form method="post" action="/login">
+                    <div>
+                        <b>Username</b>
+                        <input name="username" required>
+                        {% if error and type == "username" %}
+                            <p>{{ error }}</p>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <b>Password</b>
+                        <input type="password" name="password" required>
+                        {% if error and type == "password" %}
+                            <p>{{ error }}</p>
+                        {% endif %}
+                    </div>
+                    <button>Login</button>
+                </form>
+                <div class="info">
+                    <a href="/register">Have no Account? <span>Register one!</span></a>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,160 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 90vh;
+    margin: 0;
+    color: #f5f5f5;
+    background: #12101d;
+    font-family: "Segoe UI", sans-serif;
+}
+
+.logo {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    color: #f5f5f5;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+.logo:hover {
+    opacity: 0.8;
+}
+
+.logo img {
+    width: 3rem;
+    height: 3rem;
+    object-fit: cover;
+}
+
+.logo b {
+    font-size: 1.5rem;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 30rem;
+    border: 1px solid #45404d;
+    border-radius: 1rem;
+    background: #24202d;
+}
+
+.head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.img {
+    width: max-content;
+    border: 1px solid #45404d;
+    border-radius: 1.5rem;
+    background: #34303daa;
+}
+
+.img img {
+    width: 3rem;
+    height: 3rem;
+    padding: 0.75rem;
+    object-fit: cover;
+}
+
+.head p {
+    margin: 0;
+    margin-top: 1rem;
+    padding: 0;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#login form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 0 1.5rem;
+}
+
+#login form div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+#login form div b {
+    opacity: 0.8;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+#login form div input {
+    padding: 0.5rem 0.75rem;
+    border: none;
+    border-radius: 0.75rem;
+    outline: 1px solid #45404d;
+    background: #34303daa;
+    color: #f5f5f5;
+    font-size: 1rem;
+    font-family: "Segoe UI", sans-serif;
+    transition: 0.3s ease-in-out;
+}
+#login form div input:hover {
+    background: #34303d;
+}
+#login form div input:focus {
+    outline: 1px solid #56505d;
+    background: #34303d;
+}
+
+#login form div p {
+    padding: 0;
+    margin: 0;
+    font-size: 0.8rem;
+    color: #d46666;
+}
+
+#login button {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background: #56505d;
+    color: #f5f5f5;
+    font-size: 1rem;
+    font-family: "Segoe UI", sans-serif;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+#login button:hover {
+    opacity: 0.8;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 1rem;
+}
+
+.info a {
+    opacity: 0.9;
+    color: #f5f5f5;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+.info a:hover {
+    opacity: 1;
+}
+.info a:hover span {
+    text-decoration: underline;
+}

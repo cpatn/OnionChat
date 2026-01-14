@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>OnionChat</title>
+        <link rel="stylesheet" href="/static/css/index.css">
+    </head>
+    <body>
+        <iframe
+        name="chatframe"
+        src="/chat"
+        width="100%"
+        height="300"
+        style="border:1px solid #ccc;"
+    ></iframe>
+
+    <form action="/send" method="post" target="chatframe">
+        <input name="msg" autocomplete="off" required>
+        <button type="submit">Send</button>
+    </form>
+    </body>
+</html>

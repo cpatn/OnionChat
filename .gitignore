@@ -1,0 +1,7 @@
+*.pyc
+*.log
+*.db
+*.txt
+
+# ignored for privacy and security
+website/func/session.py
