@@ -14,6 +14,7 @@ import json
 import re
 
 from website.func.database import *
+from website.func.session import *
 
 auth = APIRouter()
 templates = Jinja2Templates(directory="website/templates")
@@ -58,7 +59,9 @@ async def post_login(request: Request, username: str = Form(...), password: str 
   if error:
     content = await render_template("login/login.html", {"request": request, "error": error, "type": type})
     return HTMLResponse(content=content)
-  response = RedirectResponse(url="/", status_code=303)
+  session = await encrypt(user["user"]["id"], username, user["user"]["displayname"] or username, user["user"]["avatar"], str(datetime.now().isoformat()))
+  response = RedirectResponse(url="/@me", status_code=303)
+  response.set_cookie(key="session", value=session, httponly=True, samesite="strict")
   return response
 
 @auth.post("/register")
@@ -76,6 +79,9 @@ async def post_register(request: Request, username: str = Form(...), password: s
   if len(password) < 6 or len(password) > 128:
     error = "Invalid Username Length (min 6 max 128)"
     type = "password"
+  if not validate_username(username):
+    error = "Only Latin Characters and Numbers allowed"
+    type = "username"
   user = await addUser(username, password)
   if not user:
     error = "Username taken"
@@ -83,5 +89,7 @@ async def post_register(request: Request, username: str = Form(...), password: s
   if error:
     content = await render_template("login/register.html", {"request": request, "error": error, "type": type})
     return HTMLResponse(content=content)
-  response = RedirectResponse(url="/", status_code=303)
+  session = await encrypt(user, username, username, "default.webp", str(datetime.now().isoformat()))
+  response = RedirectResponse(url="/@me", status_code=303)
+  response.set_cookie(key="session", value=session, httponly=True, samesite="strict")
   return response

@@ -47,3 +47,14 @@ async def register(request: Request):
          return RedirectResponse("/@me")
    content = await render_template("login/register.html", {"request": request})
    return HTMLResponse(content)
+
+@main.get("/@me")
+async def me(request: Request):
+   session = request.cookies.get("session")
+   if not session:
+      return RedirectResponse("/login")
+   user = await decrypt(session)
+   if not user:
+      return RedirectResponse("/login")
+   content = await render_template("app/me.html", {"request": request, "user": user})
+   return HTMLResponse(content)
